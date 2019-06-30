@@ -4,6 +4,9 @@
   <artifactId>mavandemo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 <properties>
+
+    <jenkins.e2eTests.reportsDirectory>target/protractor-reports</jenkins.e2eTests.reportsDirectory>
+
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 </properties>
