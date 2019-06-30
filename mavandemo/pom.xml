@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.codebind</groupId>
+  <artifactId>mavandemo</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+</properties>
+  <dependencies>
+  <!-- https://mvnrepository.com/artifact/junit/junit -->
+  <dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>6.8.7</version>
+    <scope>provided</scope>
+    <optional>true</optional>
+</dependency>
+<dependency>
+
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13-beta-3</version>
+    <scope>test</scope>
+</dependency>
+
+  
+  </dependencies>
+  
+  <build>
+  <testSourceDirectory>C:\Users\swathi\eclipse-workspace\mavandemo\src\test\java</testSourceDirectory>
+  <plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.19.1</version>
+        
+        <configuration>
+            <testSourceDirectory>${project.build.testSourceDirectory}</testSourceDirectory>                      
+           <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+        <configuration>
+          <systemPropertyVariables>
+            <propertyName>firefox</propertyName>
+          </systemPropertyVariables>
+        </configuration>
+            <includes>
+            <include>**.java</include>
+            </includes>
+            
+<configuration>
+        <testFailureIgnore>true</testFailureIgnore>
+    </configuration>
+         </configuration>
+     </plugin>
+    
+    
+    
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.5.1</version>
+            <configuration>
+                <source>${jdk.version}</source>
+                <target>${jdk.version}</target>
+            </configuration>
+        </plugin>
+       </plugins>
+</build>
+<reporting>
+    <plugins>
+      <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				 <version>3.0.0-M3</version>
+        <configuration>
+          <outputDirectory>${basedir}/target/newsite</outputDirectory>
+        </configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+			</plugin>
+      
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>2.1</version>
+        <configuration>
+        <configuration>
+               <testFailureIgnore>true</testFailureIgnore>
+            </configuration>
+          <outputDirectory>${basedir}/target/newsite</outputDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+    
+  </reporting>
+</project>
